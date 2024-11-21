@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #gameArea {
+            width: 400px;
+            height: 400px;
+            background: #001f3f;
+            margin: 20px auto;
+            position: relative;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #star {
+            position: absolute;
+            user-select: none;
+            transform-origin: center;
+        }
+
+        #gameOver {
+            color: red;
+            text-align: center;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .score-display {
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <a href="project.html">Project</a>
+        <a href="game.html">Game</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="contactme.html">Contact</a>
+    </nav>
+
+    <h1>Game Page</h1>
+
+    <div class="game-container">
+        <div style="text-align: center;">
+            <h2>Catch the Star!</h2>
+            <div class="score-display">
+                <p>Score: <span id="score">0</span> | Level: <span id="level">1</span></p>
+            </div>
+            <div id="gameArea">
+                <div id="star">⭐</div>
+            </div>
+            <p id="gameOver">Game Over! Click the game area to restart.</p>
+        </div>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const star = document.getElementById('star');
+        const scoreElement = document.getElementById('score');
+        const levelElement = document.getElementById('level');
+        const gameOverElement = document.getElementById('gameOver');
+        let score = 0;
+        let level = 1;
+        let speed = 2;
+        let starSize = 24;
+        let moveInterval;
+        let starDirection = { x: 1, y: 1 };
+        let isGameOver = false;
+
+        // Set star position
+        function positionStar(x, y) {
+            const maxX = gameArea.clientWidth - 20;
+            const maxY = gameArea.clientHeight - 20;
+            star.style.left = (x !== undefined ? x : Math.random() * maxX) + 'px';
+            star.style.top = (y !== undefined ? y : Math.random() * maxY) + 'px';
+            star.style.fontSize = starSize + 'px';
+        }
+
+        // Move star automatically
+        function moveStar() {
+            const rect = star.getBoundingClientRect();
+            const gameRect = gameArea.getBoundingClientRect();
+            let x = rect.left - gameRect.left + speed * starDirection.x;
+            let y = rect.top - gameRect.top + speed * starDirection.y;
+
+            // Bounce off walls
+            if (x <= 0 || x >= gameArea.clientWidth - rect.width) {
+                starDirection.x *= -1;
+                x = Math.max(0, Math.min(x, gameArea.clientWidth - rect.width));
+            }
+            if (y <= 0 || y >= gameArea.clientHeight - rect.height) {
+                starDirection.y *= -1;
+                y = Math.max(0, Math.min(y, gameArea.clientHeight - rect.height));
+            }
+            positionStar(x, y);
+        }
+
+        // Update game difficulty
+        function updateDifficulty() {
+            level = Math.floor(score / 5) + 1;
+            speed = 2 + level * 0.5;
+            starSize = Math.max(12, 24 - level * 2);
+            levelElement.textContent = level;
+            star.style.fontSize = starSize + 'px';
+        }
+
+        // Initialize or restart game
+        function startGame() {
+            score = 0;
+            level = 1;
+            speed = 2;
+            starSize = 24;
+            isGameOver = false;
+            scoreElement.textContent = score;
+            levelElement.textContent = level;
+            gameOverElement.style.display = 'none';
+            starDirection = { x: 1, y: 1 };
+            clearInterval(moveInterval);
+            moveInterval = setInterval(moveStar, 20);
+            positionStar();
+
+            // Add random direction changes
+            setInterval(() => {
+                if (!isGameOver && Math.random() < 0.1) {
+                    starDirection.x = Math.random() < 0.5 ? -1 : 1;
+                    starDirection.y = Math.random() < 0.5 ? -1 : 1;
+                }
+            }, 1000);
+        }
+
+        // Star click handler
+        star.addEventListener('click', (e) => {
+            if (!isGameOver) {
+                e.stopPropagation();
+                score++;
+                scoreElement.textContent = score;
+                updateDifficulty();
+
+                // Animate star size on click
+                const currentSize = star.style.fontSize;
+                star.style.fontSize = (parseInt(currentSize) + 10) + 'px';
+                setTimeout(() => {
+                    star.style.fontSize = starSize + 'px';
+                }, 100);
+            }
+        });
+
+        // Miss handler (clicking game area but not star)
+        gameArea.addEventListener('click', () => {
+            if (!isGameOver) {
+                isGameOver = true;
+                clearInterval(moveInterval);
+                gameOverElement.style.display = 'block';
+            } else {
+                startGame();
+            }
+        });
+
+        // Start the game
+        startGame();
+    </script>
+</body>
+</html>
