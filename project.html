@@ -1,87 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>My Projects</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects - Personal Website</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .project-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-section, .current-project {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-800 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold">My Portfolio</a>
-            <div class="space-x-4">
-                <a href="index.html" class="hover:text-gray-300">Home</a>
-                <a href="aboutme.html" class="hover:text-gray-300">About</a>
-                <a href="project.html" class="hover:text-gray-300">Projects</a>
-                <a href="game.html" class="hover:text-gray-300">Game</a>
-                <a href="discovery.html" class="hover:text-gray-300">Discovery</a>
-                <a href="contactme.html" class="hover:text-gray-300">Contact</a>
-            </div>
-        </div>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <a href="project.html">Project</a>
+        <a href="game.html">Game</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="contactme.html">Contact</a>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- Project Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">My Projects</h1>
-            <p class="text-gray-600">Exploring creativity through AI-generated content and web development</p>
-        </header>
+    <div class="project-container">
+        <div class="section-title">
+            <h1>My Projects</h1>
+            <p class="project-description">Exploring creativity through AI-generated content and web development</p>
+        </div>
 
-        <!-- Featured Video Section -->
-        <section class="bg-white rounded-lg shadow-lg p-6 mb-12">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">UMD/Duluth Feature Video</h2>
-            <div class="aspect-w-16 aspect-h-9 mb-4">
-                <!-- Replace 'umd-video.mp4' with your actual video file path -->
-                <video class="w-full rounded-lg" controls>
-                    <source src="Assets/AIvideo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <p class="text-gray-700 mb-4">
+        <div class="video-section">
+            <h2>UMD/Duluth Feature Video</h2>
+            <video controls>
+                <source src="Assets/AIvideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="project-description">
                 This AI-generated video showcases what I love most about UMD and the vibrant city of Duluth. 
                 Created using cutting-edge AI technology, this piece captures the essence of our academic 
                 community and the natural beauty of our surroundings.
             </p>
-        </section>
-
-        <!-- Current Project Section -->
-        <section class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Personal Website Development</h2>
-            <div class="prose max-w-none">
-                <h3 class="text-xl font-semibold text-gray-700 mb-3">Project Overview</h3>
-                <p class="text-gray-700 mb-4">
-                    This website represents my first semester project in web development. Built from the ground up,
-                    it showcases my growing skills in HTML, CSS, and JavaScript while incorporating modern design
-                    principles and AI-generated content.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-700 mb-3">Technologies Used</h3>
-                <ul class="list-disc list-inside text-gray-700 mb-4">
-                    <li>HTML5 for structure</li>
-                    <li>CSS3 and Tailwind CSS for styling</li>
-                    <li>JavaScript for interactivity</li>
-                    <li>Git for version control</li>
-                    <li>AI tools for content generation</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-gray-700 mb-3">Learning Outcomes</h3>
-                <p class="text-gray-700">
-                    Through this project, I've gained hands-on experience with web development fundamentals,
-                    version control systems, and modern AI tools. This combination of technical skills and
-                    creative exploration has provided valuable insights into the future of web development.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
         </div>
-    </footer>
+
+        <div class="current-project">
+            <h2>Personal Website Development</h2>
+            
+            <h3>Project Overview</h3>
+            <p class="project-description">
+                This website represents my first semester project in web development. Built from the ground up,
+                it showcases my growing skills in HTML, CSS, and JavaScript while incorporating modern design
+                principles and AI-generated content.
+            </p>
+            
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>HTML5 for structure</li>
+                <li>CSS3 and Tailwind CSS for styling</li>
+                <li>JavaScript for interactivity</li>
+                <li>Git for version control</li>
+                <li>AI tools for content generation</li>
+            </ul>
+
+            <h3>Learning Outcomes</h3>
+            <p class="project-description">
+                Through this project, I've gained hands-on experience with web development fundamentals,
+                version control systems, and modern AI tools. This combination of technical skills and
+                creative exploration has provided valuable insights into the future of web development.
+            </p>
+        </div>
+    </div>
+
+    <div class="music-player">
+        <audio id="background-music" controls loop>
+            <source src="Assets/nfl_theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 </body>
 </html>
