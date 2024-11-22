@@ -3,41 +3,150 @@
 <head>
     <title>About Me</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 0;
             padding: 20px;
         }
+
         nav {
             background-color: #333;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-right: 15px;
-            padding: 5px 10px;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
         }
+
         nav a:hover {
             background-color: #555;
         }
         .about-section {
             max-width: 800px;
             margin: 0 auto;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         .profile-img {
-            max-width: 200px;
+            max-width: 250px;
             border-radius: 50%;
-            margin: 20px 0;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 5px solid white;
         }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
         .interests-list {
             list-style-type: none;
             padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
+
         .interests-list li {
-            margin-bottom: 10px;
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .interests-list li:hover {
+            transform: translateY(-5px);
+            background-color: #555;
+        }
+
+        .connect-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .connect-button {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .connect-button:hover {
+            background-color: #555;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .music-player audio {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .music-player audio:hover {
+            opacity: 1;
+        }
+
+        .music-player audio::-webkit-media-controls-panel {
+            background-color: #f5f5f5;
+        }
+
+        .music-player audio::-webkit-media-controls-play-button {
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .music-player audio::-webkit-media-controls-current-time-display,
+        .music-player audio::-webkit-media-controls-time-remaining-display {
+            color: #333;
         }
     </style>
 </head>
@@ -53,32 +162,53 @@
     </nav>
 
     <div class="about-section">
-        <h1>About Me</h1>
+        <div class="about-header">
+            <h1>About Me</h1>
+            <img src="Images/Cole.6 2.JPG" alt="Cole Kruegel" class="profile-img">
+        </div>
         
-        <img src="/api/placeholder/200/200" alt="Your Profile Picture" class="profile-img">
+        <div class="section">
+            <h2>Who I Am</h2>
+            <p>Hello! I'm Cole Kruegel, a Finance student at UMD. I'm passionate about financial markets, investing, and helping others achieve their financial goals.</p>
+        </div>
         
-        <h2>Who I Am</h2>
-        <p>Hello! I'm Cole Kruegel, a [your profession/field] based in [your location]. I'm passionate about [your main interests or focus areas].</p>
+        <div class="section">
+            <h2>My Background</h2>
+            <p>I'm currently pursuing my degree in Finance at the University of Minnesota Duluth. My academic journey has given me a strong foundation in financial principles, market analysis, and business operations.</p>
+        </div>
         
-        <h2>My Background</h2>
-        <p>I have [X] years of experience in [your field], specializing in [your specialties]. I graduated from [University Name] with a degree in [your degree].</p>
+        <div class="section">
+            <h2>What I Do</h2>
+            <p>Currently, I'm focused on my studies while actively participating in finance-related projects and activities. I'm particularly interested in investment strategies and market analysis.</p>
+        </div>
         
-        <h2>What I Do</h2>
-        <p>Currently, I'm working on [current projects or role]. My work focuses on [description of your work].</p>
+        <div class="section">
+            <h2>Interests & Hobbies</h2>
+            <ul class="interests-list">
+                <li>📈 Stock Market Trading</li>
+                <li>💼 Financial Analysis</li>
+                <li>⛷️ Alpine Skiing</li>
+                <li>🏋️ Fitness</li>
+            </ul>
+        </div>
         
-        <h2>Interests & Hobbies</h2>
-        <ul class="interests-list">
-            <li>🖥️ [Technical Interest/Hobby]</li>
-            <li>🎨 [Creative Interest/Hobby]</li>
-            <li>🌟 [Personal Interest/Hobby]</li>
-            <li>📚 [Learning Interest/Hobby]</li>
-        </ul>
+        <div class="section">
+            <h2>Goals</h2>
+            <p>I'm working towards becoming a successful financial analyst and investment professional. I'm particularly interested in portfolio management and sustainable investing practices.</p>
+        </div>
         
-        <h2>Goals</h2>
-        <p>I'm always looking to [your professional/personal goals]. I'm particularly interested in [specific areas of interest or growth].</p>
-        
-        <h2>Let's Connect</h2>
-        <p>I'm always open to discussing [topics you're interested in discussing] or potential collaborations. Feel free to reach out through my <a href="contactme.html">contact page</a>!</p>
+        <div class="connect-section">
+            <h2>Let's Connect</h2>
+            <p>I'm always open to discussing finance, investments, or potential collaborations.</p>
+            <a href="contactme.html" class="connect-button">Get in Touch</a>
+        </div>
+    </div>
+
+    <div class="music-player">
+        <audio id="background-music" controls loop>
+            <source src="Assets/nfl_theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 </body>
 </html>

@@ -3,24 +3,35 @@
 <head>
     <title>Companies I'm Interested In</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 0;
             padding: 20px;
             background-color: #f5f5f5;
         }
+
         nav {
             background-color: #333;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-right: 15px;
-            padding: 5px 10px;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
         }
+
         nav a:hover {
             background-color: #555;
         }
@@ -44,6 +55,41 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .music-player audio {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .music-player audio:hover {
+            opacity: 1;
+        }
+
+        .music-player audio::-webkit-media-controls-panel {
+            background-color: #f5f5f5;
+        }
+
+        .music-player audio::-webkit-media-controls-play-button {
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .music-player audio::-webkit-media-controls-current-time-display,
+        .music-player audio::-webkit-media-controls-time-remaining-display {
+            color: #333;
         }
     </style>
 </head>
@@ -84,6 +130,13 @@
                 <li>Reason 3</li>
             </ul>
         </div>
+    </div>
+
+    <div class="music-player">
+        <audio id="background-music" controls loop>
+            <source src="Assets/nfl_theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 </body>
 </html>
