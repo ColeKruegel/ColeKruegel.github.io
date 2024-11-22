@@ -5,42 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        
         .music-player {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
 
-.music-player audio {
-    height: 30px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
+        .music-player audio {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
 
-.music-player audio:hover {
-    opacity: 1;
-}
+        .music-player audio:hover {
+            opacity: 1;
+        }
 
-/* Customize audio player appearance for webkit browsers */
-.music-player audio::-webkit-media-controls-panel {
-    background-color: #f5f5f5;
-}
+        .music-player audio::-webkit-media-controls-panel {
+            background-color: #f5f5f5;
+        }
 
-.music-player audio::-webkit-media-controls-play-button {
-    background-color: #333;
-    border-radius: 50%;
-}
+        .music-player audio::-webkit-media-controls-play-button {
+            background-color: #333;
+            border-radius: 50%;
+        }
 
-.music-player audio::-webkit-media-controls-current-time-display,
-.music-player audio::-webkit-media-controls-time-remaining-display {
-    color: #333;
-}
+        .music-player audio::-webkit-media-controls-current-time-display,
+        .music-player audio::-webkit-media-controls-time-remaining-display {
+            color: #333;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -114,6 +113,45 @@
             margin: 0 auto;
             line-height: 1.8;
         }
+
+        /* New styles for hobbies section */
+        .hobbies-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .hobby-item {
+            width: 45%;
+            margin: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hobby-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-description {
+            color: #666;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .welcome-video {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -132,11 +170,31 @@
         
         <img src="Images/Cole.6 2.JPG" alt="Profile Picture" class="profile-image"/>
         
+        <video class="welcome-video" controls>
+            <source src="Assets/Welcome.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+        </video>
+
         <p class="welcome-text">Enjoy Your Stay!</p>
         
         <div class="site-description">
             <p>Thank you for visiting my personal website. Here you can learn more about me, 
             check out my projects, play a fun game, and get in touch.</p>
+        </div>
+
+        <div class="hobbies-container">
+            <div class="hobby-item">
+                <img src="Assets/IRLwaterski.png" alt="Waterskiing" class="hobby-image"/>
+                <div class="hobby-description">
+                    <p>Add your waterskiing description here. Share your experience and passion for the sport!</p>
+                </div>
+            </div>
+            <div class="hobby-item">
+                <img src="Assets/IRLhunt.png" alt="Hunting" class="hobby-image"/>
+                <div class="hobby-description">
+                    <p>Add your hunting description here. Tell visitors about your hunting experiences and what you enjoy about it!</p>
+                </div>
+            </div>
         </div>
     </div>
 
