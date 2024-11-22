@@ -94,6 +94,24 @@
             background-color: #555;
         }
 
+        .skiing-photos {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skiing-photos img {
+            width: 48%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .skiing-photos img:hover {
+            transform: scale(1.05);
+        }
+
         .connect-section {
             text-align: center;
             margin-top: 2rem;
@@ -189,7 +207,12 @@
                 <li>💼 Financial Analysis</li>
                 <li>⛷️ Alpine Skiing</li>
                 <li>🏋️ Fitness</li>
+                <li>🎿 Water Skiing</li>
             </ul>
+            <div class="skiing-photos">
+                <img src="Assets/Waterski.jpg" alt="Water Skiing">
+                <img src="Assets/SnowSki.jpg" alt="Snow Skiing">
+            </div>
         </div>
         
         <div class="section">
