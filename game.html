@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Game</title>
+    <title>Catch the Star Game</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -15,6 +15,7 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             padding: 20px;
+            background-color: #f4f4f4;
         }
 
         nav {
@@ -37,19 +38,21 @@
             background-color: #555;
         }
 
-        h1 {
-            color: #333;
-            margin-bottom: 2rem;
-            text-align: center;
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .game-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #f5f5f5;
+        .game-instructions {
+            background-color: #f9f9f9;
+            padding: 1rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            border-left: 4px solid #4CAF50;
         }
 
         #gameArea {
@@ -80,6 +83,11 @@
             text-align: center;
             margin: 10px 0;
         }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -93,11 +101,23 @@
         <a href="contactme.html">Contact</a>
     </nav>
 
-    <h1>Game Page</h1>
-
     <div class="game-container">
+        <h1>Catch the Star! 🌟</h1>
+
+        <div class="game-instructions">
+            <h2>How to Play</h2>
+            <p>Welcome to Catch the Star, a fun and challenging game of reflexes!</p>
+            <ul>
+                <li>🎯 <strong>Goal:</strong> Click on the moving star as many times as possible</li>
+                <li>🌈 <strong>Gameplay:</strong> The star moves randomly around the game area</li>
+                <li>⚡ <strong>Challenge:</strong> Each click increases your score and makes the game harder</li>
+                <li>❌ <strong>Game Over:</strong> Clicking outside the star ends the game</li>
+                <li>🔁 <strong>Restart:</strong> Click the game area after game over to play again</li>
+            </ul>
+            <p><em>Pro Tip: The star gets smaller and faster as you increase your score!</em></p>
+        </div>
+
         <div style="text-align: center;">
-            <h2>Catch the Star!</h2>
             <div class="score-display">
                 <p>Score: <span id="score">0</span> | Level: <span id="level">1</span></p>
             </div>
