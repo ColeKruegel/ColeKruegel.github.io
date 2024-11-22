@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* Previous styles remain the same */
         * {
             margin: 0;
             padding: 0;
@@ -51,7 +52,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .video-section, .current-project {
+        .video-section, .current-project, .image-section {
             background-color: white;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -59,6 +60,38 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        /* New styles for images and description */
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .description-area {
+            width: 100%;
+            min-height: 100px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Rest of the previous styles */
         video {
             width: 100%;
             border-radius: 8px;
@@ -101,20 +134,6 @@
         .music-player audio:hover {
             opacity: 1;
         }
-
-        .music-player audio::-webkit-media-controls-panel {
-            background-color: #f5f5f5;
-        }
-
-        .music-player audio::-webkit-media-controls-play-button {
-            background-color: #333;
-            border-radius: 50%;
-        }
-
-        .music-player audio::-webkit-media-controls-current-time-display,
-        .music-player audio::-webkit-media-controls-time-remaining-display {
-            color: #333;
-        }
     </style>
 </head>
 <body>
@@ -132,6 +151,23 @@
         <div class="section-title">
             <h1>My Projects</h1>
             <p class="project-description">Exploring creativity through AI-generated content and web development</p>
+        </div>
+
+        <!-- New Image Sections -->
+        <div class="image-section">
+            <h2>Project Images</h2>
+            
+            <!-- First Image -->
+            <div class="image-container">
+                <img src="images/image1index.jpg" alt="Project Image 1" class="project-image">
+                <textarea class="description-area" placeholder="Enter description for image 1"></textarea>
+            </div>
+
+            <!-- Second Image -->
+            <div class="image-container">
+                <img src="images/image2index.jpg" alt="Project Image 2" class="project-image">
+                <textarea class="description-area" placeholder="Enter description for image 2"></textarea>
+            </div>
         </div>
 
         <div class="video-section">
@@ -173,13 +209,6 @@
                 creative exploration has provided valuable insights into the future of web development.
             </p>
         </div>
-    </div>
-
-    <div class="music-player">
-        <audio id="background-music" controls loop>
-            <source src="Assets/nfl_theme.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 
     <div class="music-player">
