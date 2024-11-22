@@ -5,44 +5,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Previous styles remain the same */
-        
-        .download-section {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid #333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .download-button {
-            display: inline-block;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        nav {
             background-color: #333;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+
+        nav a {
             color: white;
-            padding: 12px 24px;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resume-header h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info p {
+            margin: 0.25rem 0;
+        }
+
+        .linkedin-button {
+            display: inline-block;
+            background-color: #0077B5;
+            color: white !important;
+            padding: 8px 16px;
             text-decoration: none;
             border-radius: 4px;
-            margin-top: 1rem;
-            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+            transition: background-color 0.3s;
             font-weight: bold;
         }
 
-        .download-button:hover {
-            background-color: #555;
-            transform: translateY(-2px);
+        .linkedin-button:hover {
+            background-color: #005582;
+            text-decoration: none;
         }
 
-        .download-button i {
-            margin-right: 8px;
+        .experience-item, .education-item {
+            margin-bottom: 1.5rem;
         }
-        
-        /* Rest of your existing styles */
+
+        .experience-item h3, .education-item h3 {
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .date-location {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .skill-item {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .music-player audio {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .music-player audio:hover {
+            opacity: 1;
+        }
+
+        .music-player audio::-webkit-media-controls-panel {
+            background-color: #f5f5f5;
+        }
+
+        .music-player audio::-webkit-media-controls-play-button {
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .music-player audio::-webkit-media-controls-current-time-display,
+        .music-player audio::-webkit-media-controls-time-remaining-display {
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <!-- Previous content remains the same until the end of the skills section -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <a href="project.html">Project</a>
+        <a href="game.html">Game</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="contactme.html">Contact</a>
+    </nav>
 
     <div class="resume-container">
-        <!-- Previous sections remain the same -->
+        <div class="resume-header">
+            <h2>Cole Kruegel</h2>
+            <div class="contact-info">
+                <p>📧 kreu0353@d.umn.edu</p>
+                <p>📱 (507) 721-9848</p>
+                <p>📍 Spring Valley, MN</p>
+                <p>🔗 <a href="https://www.linkedin.com/in/colekruegel" target="_blank" style="color: #0077B5; text-decoration: underline;">LinkedIn Profile</a></p>
+                <a href="https://www.linkedin.com/in/colekruegel" target="_blank" class="linkedin-button">Connect on LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Summary</h2>
+            <p>A motivated professional with expertise in Finance. Skilled in Leadership, Motivation, and Teamwork skills. Passionate about Finance and Financial Markets.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Bartender</h3>
+                <div class="date-location"> Powells | May 2023 - August 2024 | Hayward, WI</div>
+                <ul>
+                    <li>Provided exceptional customer service in a fast-paced environment</li>
+                    <li>Managed cash transactions and maintained accurate records</li>
+                    <li>Mixed and served beverages according to recipes and customer preferences</li>
+                    <li>Maintained a clean and organized bar area</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Painter</h3>
+                <div class="date-location">Kruegels Gas | 2018 - 2022 | Spring Valley, MN</div>
+                <ul>
+                    <li>Prepared and painted various surfaces using proper techniques</li>
+                    <li>Maintained equipment and managed inventory of supplies</li>
+                    <li>Collaborated with team members to complete projects efficiently</li>
+                    <li>Ensured quality control and customer satisfaction</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <h3>High School Diploma</h3>
+                <div class="date-location">Kingsland | Graduated: 2023</div>
+                <p>GPA: 3.61</p>
+                <p>Relevant Coursework: Personal Finance</p>
+            </div>
+        </div>
 
         <div class="section">
             <h2 class="section-title">Skills</h2>
@@ -51,15 +241,6 @@
                 <li class="skill-item">Leader</li>
                 <li class="skill-item">Motivational</li>
             </ul>
-        </div>
-
-        <!-- New download section -->
-        <div class="download-section">
-            <h2 class="section-title">Download Resume</h2>
-            <p>Click below to download a PDF version of my resume</p>
-            <a href="Assets/Resume.pdf" download class="download-button">
-                📄 Download PDF Resume
-            </a>
         </div>
     </div>
 
