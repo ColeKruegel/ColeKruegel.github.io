@@ -1,46 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>My Home Page</title>
+    <title>My Projects</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        
-        .music-player {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.music-player audio {
-    height: 30px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.music-player audio:hover {
-    opacity: 1;
-}
-
-/* Customize audio player appearance for webkit browsers */
-.music-player audio::-webkit-media-controls-panel {
-    background-color: #f5f5f5;
-}
-
-.music-player audio::-webkit-media-controls-play-button {
-    background-color: #333;
-    border-radius: 50%;
-}
-
-.music-player audio::-webkit-media-controls-current-time-display,
-.music-player audio::-webkit-media-controls-time-remaining-display {
-    color: #333;
-}
+        /* Previous styles remain the same */
         * {
             margin: 0;
             padding: 0;
@@ -73,46 +38,101 @@
             background-color: #555;
         }
 
-        h1 {
+        h1, h2, h3 {
             color: #333;
-            margin-bottom: 2rem;
-            text-align: center;
+            margin-bottom: 1rem;
         }
 
-        .home-container {
-            max-width: 800px;
+        .project-container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
             background-color: #f5f5f5;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
 
-        .profile-image {
-            width: 300px;
+        .video-section, .current-project, .image-section {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* New styles for images and description */
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .project-image {
+            width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
         }
 
-        .profile-image:hover {
-            transform: scale(1.02);
+        .description-area {
+            width: 100%;
+            min-height: 100px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
         }
 
-        .welcome-text {
-            font-size: 1.2rem;
-            color: #444;
+        /* Rest of the previous styles */
+        video {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .project-description {
+            color: #666;
             margin-bottom: 1.5rem;
         }
 
-        .site-description {
+        ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
             color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .music-player audio {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .music-player audio:hover {
+            opacity: 1;
         }
     </style>
 </head>
@@ -127,16 +147,67 @@
         <a href="contactme.html">Contact</a>
     </nav>
 
-    <div class="home-container">
-        <h1>Welcome to My Website</h1>
-        
-        <img src="Images/Cole.6 2.JPG" alt="Profile Picture" class="profile-image"/>
-        
-        <p class="welcome-text">Enjoy Your Stay!</p>
-        
-        <div class="site-description">
-            <p>Thank you for visiting my personal website. Here you can learn more about me, 
-            check out my projects, play a fun game, and get in touch.</p>
+    <div class="project-container">
+        <div class="section-title">
+            <h1>My Projects</h1>
+            <p class="project-description">Exploring creativity through AI-generated content and web development</p>
+        </div>
+
+        <!-- New Image Sections -->
+        <div class="image-section">
+            <h2>Project Images</h2>
+            
+            <!-- First Image -->
+            <div class="image-container">
+                <img src="images/IRLwaterski.png" alt="Waterskiing Image" class="project-image">
+                <textarea class="description-area" placeholder="Enter description for image 1"></textarea>
+            </div>
+
+            <!-- Second Image -->
+            <div class="image-container">
+                <img src="images/IRLhunt.png" alt="Hunting Image" class="project-image">
+                <textarea class="description-area" placeholder="Enter description for image 2"></textarea>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <h2>UMD/Duluth Feature Video</h2>
+            <video controls>
+                <source src="Assets/AIvideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="project-description">
+                This AI-generated video showcases what I love most about UMD and the vibrant city of Duluth. 
+                Created using cutting-edge AI technology, this piece captures the essence of our academic 
+                community and the natural beauty of our surroundings.
+            </p>
+        </div>
+
+        <div class="current-project">
+            <h2>Personal Website Development</h2>
+            
+            <h3>Project Overview</h3>
+            <p class="project-description">
+                This website represents my first semester project in web development. Built from the ground up,
+                it showcases my growing skills in HTML, CSS, and JavaScript while incorporating modern design
+                principles and AI-generated content.
+            </p>
+            
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>HTML5 for structure</li>
+                <li>CSS3 and Tailwind CSS for styling</li>
+                <li>JavaScript for interactivity</li>
+                <li>Git for version control</li>
+                <li>AI tools for content generation</li>
+            </ul>
+
+            <h3>Learning Outcomes</h3>
+            <p class="project-description">
+                Through this project, I've gained hands-on experience with web development fundamentals,
+                version control systems, and modern AI tools. This combination of technical skills and
+                creative exploration has provided valuable insights into the future of web development.
+            </p>
         </div>
     </div>
 
@@ -146,6 +217,5 @@
             Your browser does not support the audio element.
         </audio>
     </div>
-
 </body>
 </html>
