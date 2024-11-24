@@ -35,6 +35,7 @@
         nav a:hover {
             background-color: #555;
         }
+
         .companies-content {
             max-width: 800px;
             margin: 0 auto;
@@ -43,18 +44,35 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
         .company-card {
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
         }
+
         .company-image {
             max-width: 100%;
             height: 300px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
+        }
+
+        .company-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .company-link:hover {
+            background-color: #555;
         }
 
         .music-player {
@@ -110,13 +128,14 @@
         <div class="company-card">
             <h2>FDIC</h2>
             <img src="Assets/FDIC.png" alt="Company 1 Image" class="company-image">
-            <p> Examines and supervises financial institutions to ensure they are safe, sound, and comply with laws and regulations</p>
+            <p>Examines and supervises financial institutions to ensure they are safe, sound, and comply with laws and regulations</p>
             <h3>Key Reasons I'm Interested:</h3>
             <ul>
                 <li>Opportunity for Growth</li>
                 <li>Internship Availability</li>
                 <li>Career Development</li>
             </ul>
+            <a href="https://www.fdic.gov" target="_blank" class="company-link">Visit FDIC Website</a>
         </div>
 
         <div class="company-card">
@@ -129,6 +148,7 @@
                 <li>Flexibility</li>
                 <li>Continuos Education</li>
             </ul>
+            <a href="https://www.morganstanley.com" target="_blank" class="company-link">Visit Morgan Stanley Website</a>
         </div>
     </div>
 
