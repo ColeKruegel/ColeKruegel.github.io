@@ -5,30 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .music-player audio {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .music-player audio:hover {
+            opacity: 1;
+        }
+
+        .music-player audio::-webkit-media-controls-panel {
+            background-color: #f5f5f5;
+        }
+
+        .music-player audio::-webkit-media-controls-play-button {
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .music-player audio::-webkit-media-controls-current-time-display,
+        .music-player audio::-webkit-media-controls-time-remaining-display {
+            color: #333;
+        }
+
+        .content-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
         }
 
         h1, h2 {
             color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
         .umd-section {
             margin-bottom: 40px;
             padding: 20px;
-            background-color: white;
+            background-color: #f5f5f5;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .interests-section {
-            background-color: white;
+            background-color: #f5f5f5;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -65,60 +130,79 @@
     </style>
 </head>
 <body>
-    <h1>My Projects</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <a href="project.html">Project</a>
+        <a href="game.html">Game</a>
+        <a href="discovery.html">Discovery</a>
+        <a href="contactme.html">Contact</a>
+    </nav>
 
-    <div class="umd-section">
-        <h2>UMD Video Project</h2>
-        <div class="media-item">
-            <video controls>
-                <source src="/api/placeholder/video" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="description">An AI-generated video showcasing the University of Maryland campus and its vibrant community.</p>
+    <div class="content-container">
+        <h1>My Projects</h1>
+
+        <div class="umd-section">
+            <h2>UMD Video Project</h2>
+            <div class="media-item">
+                <video controls>
+                    <source src="/api/placeholder/video" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="description">An AI-generated video showcasing the University of Maryland campus and its vibrant community.</p>
+            </div>
+        </div>
+
+        <div class="interests-section">
+            <h2>Topics of Interest</h2>
+            <div class="media-container">
+                <!-- AI Generated Videos -->
+                <div class="media-item">
+                    <video controls>
+                        <source src="/api/placeholder/video" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="description">Deep learning visualization: A journey through neural networks and their decision-making process.</p>
+                </div>
+                <div class="media-item">
+                    <video controls>
+                        <source src="/api/placeholder/video" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="description">AI in nature: Exploring how artificial intelligence can help us understand and preserve ecosystems.</p>
+                </div>
+
+                <!-- AI Generated Photos -->
+                <div class="media-item">
+                    <img src="/api/placeholder/400/300" alt="AI Art Generation">
+                    <p class="description">Abstract visualization of machine learning algorithms at work.</p>
+                </div>
+                <div class="media-item">
+                    <img src="/api/placeholder/400/300" alt="Future Technology">
+                    <p class="description">AI-imagined future of human-computer interaction.</p>
+                </div>
+                <div class="media-item">
+                    <img src="/api/placeholder/400/300" alt="Data Patterns">
+                    <p class="description">Beautiful patterns emerged from big data analysis.</p>
+                </div>
+                <div class="media-item">
+                    <img src="/api/placeholder/400/300" alt="Robotics Innovation">
+                    <p class="description">Next-generation robotics systems enhanced by AI.</p>
+                </div>
+                <div class="media-item">
+                    <img src="/api/placeholder/400/300" alt="Smart Cities">
+                    <p class="description">AI's vision of future sustainable smart cities.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="interests-section">
-        <h2>Topics of Interest</h2>
-        <div class="media-container">
-            <!-- AI Generated Videos -->
-            <div class="media-item">
-                <video controls>
-                    <source src="/api/placeholder/video" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p class="description">Deep learning visualization: A journey through neural networks and their decision-making process.</p>
-            </div>
-            <div class="media-item">
-                <video controls>
-                    <source src="/api/placeholder/video" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p class="description">AI in nature: Exploring how artificial intelligence can help us understand and preserve ecosystems.</p>
-            </div>
-
-            <!-- AI Generated Photos -->
-            <div class="media-item">
-                <img src="/api/placeholder/400/300" alt="AI Art Generation">
-                <p class="description">Abstract visualization of machine learning algorithms at work.</p>
-            </div>
-            <div class="media-item">
-                <img src="/api/placeholder/400/300" alt="Future Technology">
-                <p class="description">AI-imagined future of human-computer interaction.</p>
-            </div>
-            <div class="media-item">
-                <img src="/api/placeholder/400/300" alt="Data Patterns">
-                <p class="description">Beautiful patterns emerged from big data analysis.</p>
-            </div>
-            <div class="media-item">
-                <img src="/api/placeholder/400/300" alt="Robotics Innovation">
-                <p class="description">Next-generation robotics systems enhanced by AI.</p>
-            </div>
-            <div class="media-item">
-                <img src="/api/placeholder/400/300" alt="Smart Cities">
-                <p class="description">AI's vision of future sustainable smart cities.</p>
-            </div>
-        </div>
+    <div class="music-player">
+        <audio id="background-music" controls loop>
+            <source src="Assets/nfl_theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 </body>
 </html>
