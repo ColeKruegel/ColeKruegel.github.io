@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Companies I'm Interested In</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -109,6 +110,38 @@
         .music-player audio::-webkit-media-controls-time-remaining-display {
             color: #333;
         }
+
+        /* New styles for stock tracker */
+        .stock-info {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .change {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .positive {
+            color: green;
+        }
+
+        .negative {
+            color: red;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -124,6 +157,25 @@
 
     <div class="companies-content">
         <h1>Companies I'm Interested In</h1>
+
+        <div class="company-card">
+            <h2>Apple Inc. (AAPL)</h2>
+            <img src="Assets/apple.jpg" alt="Apple Inc." class="company-image">
+            <p>A leading technology company known for innovative products like the iPhone, iPad, and Mac computers.</p>
+            <div class="stock-info">
+                <h3>Live Stock Price</h3>
+                <div class="price" id="currentPrice">Loading...</div>
+                <div class="change" id="priceChange"></div>
+                <div class="last-updated" id="lastUpdated"></div>
+            </div>
+            <h3>Key Reasons I'm Interested:</h3>
+            <ul>
+                <li>Innovation Leadership</li>
+                <li>Strong Market Position</li>
+                <li>Technology Pioneer</li>
+            </ul>
+            <a href="https://www.apple.com" target="_blank" class="company-link">Visit Apple Website</a>
+        </div>
 
         <div class="company-card">
             <h2>FDIC</h2>
@@ -158,5 +210,37 @@
             Your browser does not support the audio element.
         </audio>
     </div>
+
+    <script>
+        const API_KEY = 'ct18mo9r01qkcukbo26gct18mo9r01qkcukbo270'; // Replace with your API key
+        
+        async function fetchStockData() {
+            try {
+                const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${API_KEY}`);
+                const data = await response.json();
+                
+                // Update DOM elements
+                document.getElementById('currentPrice').textContent = `$${data.c.toFixed(2)}`;
+                
+                const change = data.d.toFixed(2);
+                const changePercent = data.dp.toFixed(2);
+                const changeElement = document.getElementById('priceChange');
+                changeElement.textContent = `${change > 0 ? '+' : ''}${change} (${changePercent}%)`;
+                changeElement.className = `change ${change >= 0 ? 'positive' : 'negative'}`;
+                
+                document.getElementById('lastUpdated').textContent = 
+                    `Last updated: ${moment(data.t * 1000).format('MMMM D, YYYY h:mm:ss A')}`;
+            } catch (error) {
+                console.error('Error fetching stock data:', error);
+                document.getElementById('currentPrice').textContent = 'Error loading data';
+            }
+        }
+
+        // Fetch initial data
+        fetchStockData();
+
+        // Update every minute
+        setInterval(fetchStockData, 60000);
+    </script>
 </body>
 </html>
