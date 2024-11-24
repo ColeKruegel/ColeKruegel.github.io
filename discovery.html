@@ -43,7 +43,7 @@
             background-color: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .company-card {
@@ -97,20 +97,6 @@
             opacity: 1;
         }
 
-        .music-player audio::-webkit-media-controls-panel {
-            background-color: #f5f5f5;
-        }
-
-        .music-player audio::-webkit-media-controls-play-button {
-            background-color: #333;
-            border-radius: 50%;
-        }
-
-        .music-player audio::-webkit-media-controls-current-time-display,
-        .music-player audio::-webkit-media-controls-time-remaining-display {
-            color: #333;
-        }
-
         /* New styles for stock tracker */
         .stock-info {
             margin-top: 15px;
@@ -158,7 +144,7 @@
     <div class="companies-content">
         <h1>Companies I'm Interested In</h1>
 
-        <div class="company-card"></div>
+        <div class="company-card">
             <h2>Morgan Stanley Wealth Management</h2>
             <img src="Assets/MorganStanley.png" alt="Company 2 Image" class="company-image">
             <p>Financial expert who helps individuals and businesses manage their finances and reach their financial goals</p>
@@ -166,7 +152,7 @@
             <ul>
                 <li>Job Stability</li>
                 <li>Flexibility</li>
-                <li>Continuos Education</li>
+                <li>Continuous Education</li>
             </ul>
             <a href="https://www.morganstanley.com" target="_blank" class="company-link">Visit Morgan Stanley Website</a>
         </div>
@@ -183,11 +169,11 @@
             </ul>
             <a href="https://www.fdic.gov" target="_blank" class="company-link">Visit FDIC Website</a>
         </div>
-        
+
         <div class="company-card">
             <h2>Apple Inc. (AAPL)</h2>
             <img src="Assets/Screenshot 2024-11-23 at 8.22.11 PM.png" alt="Apple Inc." class="company-image">
-            <p>Financial analyst for a leading technology company known for innovative products like the iPhone, iPad, and Mac computers.</p>
+            <p>A leading technology company known for innovative products like the iPhone, iPad, and Mac computers.</p>
             <div class="stock-info">
                 <h3>Live Stock Price</h3>
                 <div class="price" id="currentPrice">Loading...</div>
@@ -202,8 +188,6 @@
             </ul>
             <a href="https://www.apple.com" target="_blank" class="company-link">Visit Apple Website</a>
         </div>
-
-        
     </div>
 
     <div class="music-player">
@@ -221,7 +205,6 @@
                 const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${API_KEY}`);
                 const data = await response.json();
                 
-                // Update DOM elements
                 document.getElementById('currentPrice').textContent = `$${data.c.toFixed(2)}`;
                 
                 const change = data.d.toFixed(2);
@@ -238,11 +221,9 @@
             }
         }
 
-        // Fetch initial data
         fetchStockData();
-
-        // Update every minute
         setInterval(fetchStockData, 60000);
     </script>
 </body>
 </html>
+
